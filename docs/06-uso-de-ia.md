@@ -35,3 +35,11 @@ código. Nunca se pidió código sin una especificación y un plan revisados por
 | 5 | 05/11/2026 | Especificar | "Especificá la etapa de diagnóstico: (a) pruebas de caracterización que fijen el comportamiento actual de todos los endpoints, la prioridad por tipo y urgencia y el ciclo de estados; (b) un inventario de al menos 8 code smells con ubicación, evidencia, impacto, riesgo de mantenimiento y prioridad. Criterio de aceptación: las pruebas pasan todas sobre la versión inicial sin tocar el código" | Spec del diagnóstico, alineada con el mínimo de 8 problemas que pide la consigna |
 | 6 | 05/11/2026 | Planificar | "Planificá cómo cumplir cada criterio: qué casos de pytest con `TestClient` van en `test_caracterizacion_api.py`, con qué criterios se clasifica cada smell y en qué orden se hace todo" | Plan de pruebas y plantilla de la tabla de code smells |
 | 7 | 05/11/2026 | Implementar y verificar | "Ejecutá el plan: escribí las pruebas de caracterización, analizá `main.py` y `App.jsx` para armar el inventario y verificá cada criterio de la spec" | `tests/test_caracterizacion_api.py` (29 pruebas, 29/29 sobre la versión inicial) y base de `01-diagnostico.md` (14 problemas). El equipo revisó los números de línea y reprodujo la inyección SQL |
+
+### Tag `etapa-refactoring`
+
+| # | Fecha | Fase SDD | Prompt (resumen) | Uso del resultado |
+|---|---|---|---|---|
+| 8 | 05/11/2026 | Especificar | "Especificá R0: eliminar la inyección SQL (CS-01), el `except:` vacío (CS-02) y el código muerto (CS-14). Criterios de aceptación: un filtro con payload de inyección no altera la consulta, los errores no se silencian y las 29 pruebas de caracterización pasan sin modificarlas. Tiene que ser un commit chico y aparte" | Spec de R0 |
+| 9 | 05/11/2026 | Planificar | "Planificá R0 como lista de tareas: qué consultas pasan a parametrizadas, qué excepción concreta reemplaza al `except:` vacío y qué líneas se eliminan" | Plan de R0 |
+| 10 | 05/11/2026 | Implementar y verificar | "Implementá las tareas de R0 y verificá cada criterio de la spec" | R0: consultas parametrizadas, sin `except:` vacío ni código muerto. Caracterización 29/29 |

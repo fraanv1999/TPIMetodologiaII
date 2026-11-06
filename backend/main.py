@@ -95,23 +95,25 @@ async def crear(request: Request):
 @app.get("/api/solicitudes")
 def listar(estado: str = None, tipo: str = None, prioridad: str = None, texto: str = None):
     q = "SELECT s.*, e.nombre AS en, e.legajo AS el, r.nombre AS rn FROM solicitudes s JOIN estudiantes e ON s.estudiante_id = e.id LEFT JOIN responsables r ON s.responsable_id = r.id WHERE 1=1"
+    params = []
     if estado:
-        q += " AND s.estado = '" + estado + "'"
+        q += " AND s.estado = ?"
+        params.append(estado)
     if tipo:
-        q += " AND s.tipo = '" + tipo + "'"
+        q += " AND s.tipo = ?"
+        params.append(tipo)
     if prioridad:
-        q += " AND s.prioridad = '" + prioridad + "'"
+        q += " AND s.prioridad = ?"
+        params.append(prioridad)
     if texto:
-        q += " AND (s.asunto LIKE '%" + texto + "%' OR e.nombre LIKE '%" + texto + "%' OR e.legajo LIKE '%" + texto + "%')"
+        q += " AND (s.asunto LIKE ? OR e.nombre LIKE ? OR e.legajo LIKE ?)"
+        params += ["%" + texto + "%"] * 3
     q += " ORDER BY s.id DESC"
-    try:
-        c.execute(q)
-        data2 = []
-        for r in c.fetchall():
-            data2.append({"id": r["id"], "estudiante_id": r["estudiante_id"], "estudiante": r["en"], "legajo": r["el"], "tipo": r["tipo"], "asunto": r["asunto"], "descripcion": r["descripcion"], "prioridad": r["prioridad"], "estado": r["estado"], "responsable_id": r["responsable_id"], "responsable": r["rn"], "fecha_creacion": r["fecha"], "fecha_actualizacion": r["fecha_act"]})
-        return data2
-    except:
-        return []
+    c.execute(q, params)
+    data2 = []
+    for r in c.fetchall():
+        data2.append({"id": r["id"], "estudiante_id": r["estudiante_id"], "estudiante": r["en"], "legajo": r["el"], "tipo": r["tipo"], "asunto": r["asunto"], "descripcion": r["descripcion"], "prioridad": r["prioridad"], "estado": r["estado"], "responsable_id": r["responsable_id"], "responsable": r["rn"], "fecha_creacion": r["fecha"], "fecha_actualizacion": r["fecha_act"]})
+    return data2
 
 
 @app.get("/api/solicitudes/{id}")
@@ -191,10 +193,3 @@ def resumen():
         porc = round(pe["RESUELTA"] * 100 / t, 2)
     return {"total": t, "por_estado": pe, "por_tipo": pt, "por_prioridad": pp, "sin_responsable": sr, "porcentaje_resueltas": porc}
 
-
-# ya no se usa
-# @app.delete("/api/solicitudes/{id}")
-# def borrar(id):
-#     c.execute("DELETE FROM solicitudes WHERE id = " + str(id))
-#     conn.commit()
-#     return {"ok": True}
