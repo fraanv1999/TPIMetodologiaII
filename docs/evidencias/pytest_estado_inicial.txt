@@ -1,0 +1,43 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.10, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\Fraan\AppData\Local\Programs\Python\Python313\python.exe
+rootdir: C:\Users\Fraan\Downloads\UTN Download\Anio 2\Cuatri II\Metodologia II\TPI\Entrega\TPI-Metodologia-II\backend
+plugins: anyio-4.15.1, cov-7.1.0
+collecting ... collected 29 items
+
+tests/test_caracterizacion_api.py::test_cp01_lista_estudiantes_semilla PASSED [  3%]
+tests/test_caracterizacion_api.py::test_cp02_lista_responsables_semilla PASSED [  6%]
+tests/test_caracterizacion_api.py::test_cp03_registrar_solicitud_valida PASSED [ 10%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[certificado-False-BAJA] PASSED [ 13%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[certificado-True-MEDIA] PASSED [ 17%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[equivalencia-False-MEDIA] PASSED [ 20%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[equivalencia-True-ALTA] PASSED [ 24%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[reclamo_nota-False-ALTA] PASSED [ 27%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[reclamo_nota-True-ALTA] PASSED [ 31%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[baja_materia-False-MEDIA] PASSED [ 34%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[otro-False-BAJA] PASSED [ 37%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[otro-True-MEDIA] PASSED [ 41%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios0-400] PASSED [ 44%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios1-400] PASSED [ 48%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios2-400] PASSED [ 51%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios3-400] PASSED [ 55%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios4-400] PASSED [ 58%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios5-404] PASSED [ 62%]
+tests/test_caracterizacion_api.py::test_cp06_obtener_por_id_y_404 PASSED [ 65%]
+tests/test_caracterizacion_api.py::test_cp07_filtrar_por_estado_tipo_prioridad_y_texto PASSED [ 68%]
+tests/test_caracterizacion_api.py::test_cp07b_listado_ordenado_descendente PASSED [ 72%]
+tests/test_caracterizacion_api.py::test_cp07c_texto_con_comilla_no_rompe PASSED [ 75%]
+tests/test_caracterizacion_api.py::test_cp08_asignar_responsable PASSED  [ 79%]
+tests/test_caracterizacion_api.py::test_cp09_flujo_completo_de_estados PASSED [ 82%]
+tests/test_caracterizacion_api.py::test_cp10_transiciones_desde_pendiente[RESUELTA-409] PASSED [ 86%]
+tests/test_caracterizacion_api.py::test_cp10_transiciones_desde_pendiente[PENDIENTE-409] PASSED [ 89%]
+tests/test_caracterizacion_api.py::test_cp10_transiciones_desde_pendiente[CUALQUIERA-400] PASSED [ 93%]
+tests/test_caracterizacion_api.py::test_cp10_transiciones_desde_pendiente[RECHAZADA-200] PASSED [ 96%]
+tests/test_caracterizacion_api.py::test_cp11_reporte_resumen_se_actualiza PASSED [100%]
+
+============================== warnings summary ===============================
+..\..\..\..\..\..\..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\Fraan\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 29 passed, 1 warning in 0.17s ========================

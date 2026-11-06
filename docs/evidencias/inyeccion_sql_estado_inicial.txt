@@ -1,0 +1,6 @@
+EVIDENCIA - version inicial (tag estado-inicial), endpoint GET /api/solicitudes
+Base con 2 solicitudes cargadas
+1) Busqueda normal estado='NO_EXISTE' -> 0 resultados
+2) Filtro estado="x' OR 1=1 --" -> 2 resultados  <-- INYECCION SQL: devuelve todo
+3) Filtro estado="x' OR (SELECT COUNT(*) FROM sqlite_master WHERE name='estudiantes') = 1 --" -> 2 resultados  <-- permite sondear tablas internas
+4) Texto con SQL mal formado "abc%' OR (1=1" -> [] (HTTP 200)  <-- el except vacio oculta el error y responde [] con 200
