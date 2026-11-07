@@ -52,3 +52,11 @@ código. Nunca se pidió código sin una especificación y un plan revisados por
 | 17 | 05/11/2026 | Especificar | "Especificá R6 para el frontend: separar `App.jsx` por responsabilidad (presentación, estado y acceso a la API). Criterios de aceptación: la pantalla se ve y funciona igual y el build no tiene errores" | Spec de R6 |
 | 18 | 05/11/2026 | Planificar | "Planificá qué componentes salen de `App.jsx`, qué estado pasa a un hook y qué `fetch` pasan a un módulo de API, como lista de tareas" | Plan de R6 |
 | 19 | 05/11/2026 | Implementar y verificar | "Implementá las tareas de R6 y verificá los criterios de la spec" | R6: componentes + hook `useSolicitudes` + `api/solicitudesApi.js`. Verificado con `npm run build` y prueba manual de la pantalla |
+
+### Tag `etapa-pruebas`
+
+| # | Fecha | Fase SDD | Prompt (resumen) | Uso del resultado |
+|---|---|---|---|---|
+| 20 | 05/11/2026 | Especificar | "Especificá la estrategia de pruebas: unitarias de dominio, de servicios aislados de la base y de regresión de seguridad para la inyección SQL. Criterios de aceptación: todas pasan sobre el código refactorizado, la cobertura de `app/` es de al menos 90% y las pruebas de seguridad fallan sobre la versión inicial" | Spec de la etapa de pruebas |
+| 21 | 05/11/2026 | Planificar | "Planificá los casos: qué reglas de dominio cubrir, repositorios en memoria como dobles de prueba para los servicios, qué payloads de inyección usar y cómo medir y guardar la cobertura" | Plan de pruebas por nivel |
+| 22 | 05/11/2026 | Implementar y verificar | "Implementá las pruebas del plan, medí la cobertura, corré las de seguridad sobre la versión inicial y guardá las salidas como evidencia" | 65 pruebas, 99% de cobertura (`pytest --cov=app`); las de seguridad dan 1/5 sobre la versión inicial. Evidencias en `docs/evidencias/` |

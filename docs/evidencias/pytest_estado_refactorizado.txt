@@ -1,0 +1,99 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.10, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\Fraan\AppData\Local\Programs\Python\Python313\python.exe
+rootdir: C:\Users\Fraan\Downloads\UTN Download\Anio 2\Cuatri II\Metodologia II\TPI\Entrega\TPI-Metodologia-II\backend
+plugins: anyio-4.15.1, cov-7.1.0
+collecting ... collected 65 items
+
+tests/test_caracterizacion_api.py::test_cp01_lista_estudiantes_semilla PASSED [  1%]
+tests/test_caracterizacion_api.py::test_cp02_lista_responsables_semilla PASSED [  3%]
+tests/test_caracterizacion_api.py::test_cp03_registrar_solicitud_valida PASSED [  4%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[certificado-False-BAJA] PASSED [  6%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[certificado-True-MEDIA] PASSED [  7%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[equivalencia-False-MEDIA] PASSED [  9%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[equivalencia-True-ALTA] PASSED [ 10%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[reclamo_nota-False-ALTA] PASSED [ 12%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[reclamo_nota-True-ALTA] PASSED [ 13%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[baja_materia-False-MEDIA] PASSED [ 15%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[otro-False-BAJA] PASSED [ 16%]
+tests/test_caracterizacion_api.py::test_cp04_prioridad_segun_tipo_y_urgencia[otro-True-MEDIA] PASSED [ 18%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios0-400] PASSED [ 20%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios1-400] PASSED [ 21%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios2-400] PASSED [ 23%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios3-400] PASSED [ 24%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios4-400] PASSED [ 26%]
+tests/test_caracterizacion_api.py::test_cp05_rechaza_datos_invalidos[cambios5-404] PASSED [ 27%]
+tests/test_caracterizacion_api.py::test_cp06_obtener_por_id_y_404 PASSED [ 29%]
+tests/test_caracterizacion_api.py::test_cp07_filtrar_por_estado_tipo_prioridad_y_texto PASSED [ 30%]
+tests/test_caracterizacion_api.py::test_cp07b_listado_ordenado_descendente PASSED [ 32%]
+tests/test_caracterizacion_api.py::test_cp07c_texto_con_comilla_no_rompe PASSED [ 33%]
+tests/test_caracterizacion_api.py::test_cp08_asignar_responsable PASSED  [ 35%]
+tests/test_caracterizacion_api.py::test_cp09_flujo_completo_de_estados PASSED [ 36%]
+tests/test_caracterizacion_api.py::test_cp10_transiciones_desde_pendiente[RESUELTA-409] PASSED [ 38%]
+tests/test_caracterizacion_api.py::test_cp10_transiciones_desde_pendiente[PENDIENTE-409] PASSED [ 40%]
+tests/test_caracterizacion_api.py::test_cp10_transiciones_desde_pendiente[CUALQUIERA-400] PASSED [ 41%]
+tests/test_caracterizacion_api.py::test_cp10_transiciones_desde_pendiente[RECHAZADA-200] PASSED [ 43%]
+tests/test_caracterizacion_api.py::test_cp11_reporte_resumen_se_actualiza PASSED [ 44%]
+tests/test_dominio.py::test_toda_solicitud_tiene_prioridad_base[certificado] PASSED [ 46%]
+tests/test_dominio.py::test_toda_solicitud_tiene_prioridad_base[equivalencia] PASSED [ 47%]
+tests/test_dominio.py::test_toda_solicitud_tiene_prioridad_base[reclamo_nota] PASSED [ 49%]
+tests/test_dominio.py::test_toda_solicitud_tiene_prioridad_base[baja_materia] PASSED [ 50%]
+tests/test_dominio.py::test_toda_solicitud_tiene_prioridad_base[otro] PASSED [ 52%]
+tests/test_dominio.py::test_urgencia_eleva_un_nivel_y_alta_es_tope PASSED [ 53%]
+tests/test_dominio.py::test_tabla_de_transiciones[PENDIENTE-EN_PROCESO-True] PASSED [ 55%]
+tests/test_dominio.py::test_tabla_de_transiciones[PENDIENTE-RECHAZADA-True] PASSED [ 56%]
+tests/test_dominio.py::test_tabla_de_transiciones[PENDIENTE-RESUELTA-False] PASSED [ 58%]
+tests/test_dominio.py::test_tabla_de_transiciones[EN_PROCESO-RESUELTA-True] PASSED [ 60%]
+tests/test_dominio.py::test_tabla_de_transiciones[EN_PROCESO-PENDIENTE-False] PASSED [ 61%]
+tests/test_dominio.py::test_tabla_de_transiciones[RESUELTA-PENDIENTE-False] PASSED [ 63%]
+tests/test_dominio.py::test_tabla_de_transiciones[RECHAZADA-EN_PROCESO-False] PASSED [ 64%]
+tests/test_dominio.py::test_estados_finales PASSED                       [ 66%]
+tests/test_dominio.py::test_estado_desde_texto_invalido_lanza_dato_invalido PASSED [ 67%]
+tests/test_dominio.py::test_no_pasa_a_en_proceso_sin_responsable PASSED  [ 69%]
+tests/test_dominio.py::test_cambiar_estado_actualiza_fecha PASSED        [ 70%]
+tests/test_dominio.py::test_no_se_asigna_responsable_a_solicitud_cerrada PASSED [ 72%]
+tests/test_seguridad.py::test_filtros_no_permiten_inyeccion_sql[filtro0] PASSED [ 73%]
+tests/test_seguridad.py::test_filtros_no_permiten_inyeccion_sql[filtro1] PASSED [ 75%]
+tests/test_seguridad.py::test_filtros_no_permiten_inyeccion_sql[filtro2] PASSED [ 76%]
+tests/test_seguridad.py::test_filtros_no_permiten_inyeccion_sql[filtro3] PASSED [ 78%]
+tests/test_seguridad.py::test_texto_con_comodines_se_trata_como_dato PASSED [ 80%]
+tests/test_servicios.py::test_registrar_calcula_prioridad_estado_y_fechas PASSED [ 81%]
+tests/test_servicios.py::test_registrar_con_estudiante_inexistente PASSED [ 83%]
+tests/test_servicios.py::test_flujo_asignar_tomar_resolver PASSED        [ 84%]
+tests/test_servicios.py::test_orden_de_validacion_en_cambio_de_estado PASSED [ 86%]
+tests/test_servicios.py::test_asignar_responsable_inexistente PASSED     [ 87%]
+tests/test_servicios.py::test_reporte_resumen PASSED                     [ 89%]
+tests/test_servicios.py::test_reporte_vacio PASSED                       [ 90%]
+tests/test_servicios.py::test_dto_valida_entrada[cambios0-Tipo de solicitud invalido] PASSED [ 92%]
+tests/test_servicios.py::test_dto_valida_entrada[cambios1-al menos 5] PASSED [ 93%]
+tests/test_servicios.py::test_dto_valida_entrada[cambios2-120] PASSED    [ 95%]
+tests/test_servicios.py::test_dto_valida_entrada[cambios3-1000] PASSED   [ 96%]
+tests/test_servicios.py::test_dto_valida_entrada[cambios4-obligatorio] PASSED [ 98%]
+tests/test_servicios.py::test_dto_normaliza_asunto_y_descripcion PASSED  [100%]
+
+============================== warnings summary ===============================
+..\..\..\..\..\..\..\..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\Fraan\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=============================== tests coverage ================================
+______________ coverage: platform win32, python 3.13.10-final-0 _______________
+
+Name                           Stmts   Miss  Cover
+--------------------------------------------------
+app\__init__.py                    0      0   100%
+app\database.py                   18      0   100%
+app\dependencies.py               11      0   100%
+app\domain\__init__.py             0      0   100%
+app\domain\enums.py               32      0   100%
+app\domain\errores.py              7      0   100%
+app\domain\reglas.py               5      0   100%
+app\main.py                       31      1    97%
+app\models\__init__.py            48      0   100%
+app\repositories\__init__.py      44      1    98%
+app\routers\__init__.py           34      0   100%
+app\schemas\__init__.py           88      0   100%
+app\services\__init__.py          53      0   100%
+--------------------------------------------------
+TOTAL                            371      2    99%
+======================== 65 passed, 1 warning in 0.63s ========================
