@@ -59,6 +59,8 @@ class SolicitudCreate(BaseModel):
 
 
 class CambioEstadoRequest(BaseModel):
+    # Se recibe como texto y se convierte en el servicio para conservar el orden
+    # de validacion original: primero 404 (solicitud inexistente) y luego 400.
     estado: Optional[str] = None
 
 

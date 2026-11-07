@@ -60,3 +60,11 @@ código. Nunca se pidió código sin una especificación y un plan revisados por
 | 20 | 05/11/2026 | Especificar | "Especificá la estrategia de pruebas: unitarias de dominio, de servicios aislados de la base y de regresión de seguridad para la inyección SQL. Criterios de aceptación: todas pasan sobre el código refactorizado, la cobertura de `app/` es de al menos 90% y las pruebas de seguridad fallan sobre la versión inicial" | Spec de la etapa de pruebas |
 | 21 | 05/11/2026 | Planificar | "Planificá los casos: qué reglas de dominio cubrir, repositorios en memoria como dobles de prueba para los servicios, qué payloads de inyección usar y cómo medir y guardar la cobertura" | Plan de pruebas por nivel |
 | 22 | 05/11/2026 | Implementar y verificar | "Implementá las pruebas del plan, medí la cobertura, corré las de seguridad sobre la versión inicial y guardá las salidas como evidencia" | 65 pruebas, 99% de cobertura (`pytest --cov=app`); las de seguridad dan 1/5 sobre la versión inicial. Evidencias en `docs/evidencias/` |
+
+### Tag `etapa-docs`
+
+| # | Fecha | Fase SDD | Prompt (resumen) | Uso del resultado |
+|---|---|---|---|---|
+| 23 | 05/11/2026 | Especificar | "Especificá el code review del código refactorizado: checklist técnico (seguridad, SOLID, clean code, pruebas y configuración), formato de cada hallazgo con ubicación, severidad y feedback constructivo, y criterio de cierre: los hallazgos mayores se corrigen y el resto se corrige, se documenta o queda como mejora futura" | Spec del code review |
+| 24 | 05/11/2026 | Planificar | "Planificá la revisión (orden de los archivos y puntos del checklist) y, para los hallazgos que se corrigen, las tareas del fix" | Plan de revisión y de corrección |
+| 25 | 05/11/2026 | Implementar y verificar | "Ejecutá la revisión con el checklist, implementá el fix de los hallazgos a corregir y verificá que las pruebas sigan pasando" | Base de `05-code-review.md`. Se corrigieron CR-04 (CORS configurable) y CR-01 en el commit `fix(code-review)`. 65/65 |
